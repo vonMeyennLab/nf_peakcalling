@@ -1,0 +1,7 @@
+reports:
+  "**/execution_timeline.html":
+    display: "Execution timeline"
+  "**/execution_report.html":
+    display: "Execution report"
+  "**/execution_trace.txt":
+    display: "Execution trace"

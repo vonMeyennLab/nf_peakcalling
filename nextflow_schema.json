@@ -1,0 +1,111 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/vonMeyennLab/nf_peakcalling/main/nextflow_schema.json",
+    "title": "Peak calling pipeline parameters",
+    "description": "Peak calling pipeline.",
+    "type": "object",
+
+    "definitions": {
+
+        "input_output_options": {
+            "title": "Input/output options",
+            "type":  "object",
+            "fa_icon": "fas fa-terminal",
+            "description": "Define where the pipeline should find input data and save output data.",
+            "required": ["input", "outdir"],
+            "properties": {
+
+                "input": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "description": "Peak calling without control samples: List of input files in BAM/BED/BedGraph format or other format required by the peak caller, e.g. '*.bam' or '*.bedgraph'.\nPeak calling with control samples: A CSV file with the names of the treatment and control files in BAM/BED/BedGraph format or other format required by the peak caller, e.g. 'design.csv'.",
+                    "help_text": "The CSV file should have the following format:\n\ntreatment,control\n/cluster/work/nme/data/josousa/project/SEQ01_H3K27me3_rep1.bam,/cluster/work/nme/data/josousa/project/SEQ01_input_rep1.bam\n/cluster/work/nme/data/josousa/project/SEQ01_H3K27me3_rep2.bam,/cluster/work/nme/data/josousa/project/SEQ01_input_rep2.bam\n/cluster/work/nme/data/josousa/project/SEQ01_H3K27me3_rep3.bam,/cluster/work/nme/data/josousa/project/SEQ01_input_rep3.bam",
+                    "fa_icon": "fas fa-file-code"
+                },
+  
+                "outdir": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "description": "The output directory where the results will be saved. You have to use an absolute path.",
+                    "fa_icon": "fas fa-folder-open"
+                }
+
+            }
+        },
+
+        "reference_genome_options": {
+            "title": "Reference genome options",
+            "type": "object",
+            "fa_icon": "fas fa-dna",
+            "required": ["genome"],
+            "description": "Reference genome used during alignment. This will provide MACS with the appropriate genome size.",
+            "properties": {
+
+                "genome": {
+                    "type": "string",
+                    "default": "GRCm39",
+                    "description": "Name of the reference genome.",
+                    "fa_icon": "fas fa-book",
+                    "enum": ["GRCm39", "GRCm38", "GRCh38", "GRCh37", "BDGP6", "WBcel235"]
+                }
+
+            }
+        },
+
+        "peak_caller_options": {
+            "title": "Peak caller options",
+            "type": "object",
+            "fa_icon": "fas fa-users-cog",
+            "description": "Choose the peak calling tool.",
+            "properties": {
+
+                "peak_caller": {
+                    "type": "string",
+                    "default": "macs",
+                    "description": "Name of the peak calling tool.",
+                    "fa_icon": "fas fa-book",
+                    "enum": ["macs", "seacr"]
+                }
+
+            }
+        },
+
+        "module_arguments_options": {
+            "title": "Module arguments options",
+            "type": "object",
+            "fa_icon": "fas fa-terminal",
+            "description": "Add extra arguments to the workflow modules.",
+            "properties": {
+
+                "macs_callpeak_args": {
+                    "type": "string",
+                    "description": "MACS callpeak arguments.",
+                    "fa_icon": "fas fa-file-code"
+                },
+
+                "seacr_args": {
+                    "type": "string",
+                    "description": "SEACR arguments.",
+                    "fa_icon": "fas fa-file-code"
+                }
+                
+            }
+        }
+
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/input_output_options"
+        },
+        {
+            "$ref": "#/definitions/reference_genome_options"
+        },
+        {
+            "$ref": "#/definitions/peak_caller_options"
+        },
+        {
+            "$ref": "#/definitions/module_arguments_options"
+        }
+    ]
+}    
