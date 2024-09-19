@@ -69,7 +69,7 @@ if (params.input.endsWith('.csv')) {
 ======================================================================================== */
 if (params.peak_caller == 'macs'){
 
-    include { MACS_CALLPEAK } from './modules/macs.mod.nf' params(genome: genome)
+    include { MACS_CALLPEAK } from './modules/macs.mod.nf' params(genome: params.genome)
 
 }
 else if (params.peak_caller == 'seacr'){

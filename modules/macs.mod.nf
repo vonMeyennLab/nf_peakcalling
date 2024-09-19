@@ -40,18 +40,18 @@ process MACS_CALLPEAK {
 		/* ==========
 			Effective genome size
 		========== */
-        if (params.genome["name"] == 'GRCh37' || params.genome["name"] == 'GRCh38') {
-			gsize = 'hs'
-		}
-        if (params.genome["name"] == 'GRCm38' || params.genome["name"] == 'GRCm39') {
-			gsize = 'mm'
-		}
-        if (params.genome["name"] == 'WBcel235') {
-			gsize = 'ce'
-		}
-        if (params.genome["name"] == 'BDGP6') {
-			gsize = 'dm'
-		}
+        def gsize
+        if (params.genome == 'GRCh37' || params.genome == 'GRCh38') {
+            gsize = 'hs'
+        } else if (params.genome == 'GRCm38' || params.genome == 'GRCm39') {
+            gsize = 'mm'
+        } else if (params.genome == 'WBcel235') {
+            gsize = 'ce'
+        } else if (params.genome == 'BDGP6') {
+            gsize = 'dm'
+        } else {
+            error "Unsupported genome: ${params.genome}"
+        }
 
 		"""
 		macs3 callpeak ${files_command} -g ${gsize} -n ${output_name} $macs_callpeak_args
