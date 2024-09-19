@@ -49,16 +49,16 @@ println ("Using peak caller: " + params.peak_caller)
 include { makeFilesChannel; getFileBaseNames } from './modules/files.mod.nf'
 
 // Loading the design csv file
-if(args[0].endsWith('.csv')){
+if (params.input.endsWith('.csv')) {
 
-    Channel.fromPath(args)
-    	   .splitCsv(header: true, sep: ',')
+    Channel.fromPath(params.input)
+           .splitCsv(header: true, sep: ',')
            .map { row -> [ file(row.treatment, checkIfExists: true), file(row.control, checkIfExists: true) ] }
            .set { files_ch }
 
 } else {
 
-    Channel.fromPath(args)
+    Channel.fromPath(params.input)
            .set { files_ch }
 
 }
