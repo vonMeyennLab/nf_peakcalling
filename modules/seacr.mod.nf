@@ -64,6 +64,6 @@ process SEACR {
 		}
 
 		"""
-        bash SEACR_1.3.sh ${files_command} ${seacr_threshold} ${seacr_normalization} ${seacr_mode} "${output_name}${output_suffix}"
+        SEACR_1.3.sh ${files_command} ${seacr_threshold} ${seacr_normalization} ${seacr_mode} "${output_name}${output_suffix}"
     	"""
 }
