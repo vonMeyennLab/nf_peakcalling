@@ -44,10 +44,10 @@
 
                 "genome": {
                     "type": "string",
-                    "default": "GRCm39",
+                    "default": "Mus_musculus_GRCm39",
                     "description": "Name of the reference genome.",
                     "fa_icon": "fas fa-book",
-                    "enum": ["GRCm39", "GRCm38", "GRCh38", "GRCh37", "BDGP6", "WBcel235"]
+                    "enum": ["Mus_musculus_GRCm39", "Mus_musculus_GRCm38_p6", "Homo_sapiens_GRCh38_p14", "Drosophila_melanogaster_BDGP6_46", "Caenorhabditis_elegans_WBcel235"]
                 }
 
             }

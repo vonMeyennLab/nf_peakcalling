@@ -52,17 +52,16 @@ Output directory where the files will be saved.
 - Reference genome used during alignment. This will provide MACS with the appropriate genome size.
 
     ```bash
-    --genome 'GRCm39'
+    --genome 'Mus_musculus_GRCm39'
     ```
 
     Available genomes:
     ``` bash
-        GRCm39 # Default
-        GRCm38
-        GRCh38
-        GRCh37 
-        BDGP6
-        WBcel235
+        Mus_musculus_GRCm39 # Default
+        Mus_musculus_GRCm38_p6
+        Homo_sapiens_GRCh38_p14 
+        Drosophila_melanogaster_BDGP6_46
+        Caenorhabditis_elegans_WBcel235
     ```
 
 

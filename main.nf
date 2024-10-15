@@ -28,7 +28,7 @@ if(params.outdir){
 /* ========================================================================================
     PARAMETERS
 ======================================================================================== */
-params.genome              = 'GRCm39' // Default genome
+params.genome              = 'Mus_musculus_GRCm39' // Default genome
 
 params.macs_callpeak_args  = ''
 params.seacr_args          = ''

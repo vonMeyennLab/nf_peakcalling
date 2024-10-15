@@ -41,13 +41,13 @@ process MACS_CALLPEAK {
 			Effective genome size
 		========== */
         def gsize
-        if (params.genome == 'GRCh37' || params.genome == 'GRCh38') {
+        if (params.genome == 'Homo_sapiens_GRCh38_p14') {
             gsize = 'hs'
-        } else if (params.genome == 'GRCm38' || params.genome == 'GRCm39') {
+        } else if (params.genome == 'Mus_musculus_GRCm38_p6' || params.genome == 'Mus_musculus_GRCm39') {
             gsize = 'mm'
-        } else if (params.genome == 'WBcel235') {
+        } else if (params.genome == 'Caenorhabditis_elegans_WBcel235') {
             gsize = 'ce'
-        } else if (params.genome == 'BDGP6') {
+        } else if (params.genome == 'Drosophila_melanogaster_BDGP6_46') {
             gsize = 'dm'
         } else {
             error "Unsupported genome: ${params.genome}"
