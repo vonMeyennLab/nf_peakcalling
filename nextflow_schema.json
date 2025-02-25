@@ -23,7 +23,7 @@
                     "help_text": "The CSV file should have the following format:\n\ntreatment,control\n/cluster/work/nme/data/josousa/project/SEQ01_H3K27me3_rep1.bam,/cluster/work/nme/data/josousa/project/SEQ01_input_rep1.bam\n/cluster/work/nme/data/josousa/project/SEQ01_H3K27me3_rep2.bam,/cluster/work/nme/data/josousa/project/SEQ01_input_rep2.bam\n/cluster/work/nme/data/josousa/project/SEQ01_H3K27me3_rep3.bam,/cluster/work/nme/data/josousa/project/SEQ01_input_rep3.bam",
                     "fa_icon": "fas fa-file-code"
                 },
-  
+
                 "outdir": {
                     "type": "string",
                     "format": "directory-path",

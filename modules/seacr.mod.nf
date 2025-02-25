@@ -37,10 +37,10 @@ process SEACR {
 			if (seacr_args =~ /.*\d.*/){
 				arr = seacr_args.split(" ", 2)
 				seacr_threshold = arr[0]
-            	output_suffix = ".FDR_" + arr[0]
+				output_suffix = ".FDR_" + arr[0]
 			} else {
 				seacr_threshold = "0.01"
-           		output_suffix = ".FDR_0.01"
+				output_suffix = ".FDR_0.01"
 			}
 
 		}
@@ -65,5 +65,5 @@ process SEACR {
 
 		"""
         SEACR_1.3.sh ${files_command} ${seacr_threshold} ${seacr_normalization} ${seacr_mode} "${output_name}${output_suffix}"
-    	"""
+		"""
 }

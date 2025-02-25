@@ -55,5 +55,5 @@ process MACS_CALLPEAK {
 
 		"""
 		macs3 callpeak ${files_command} -g ${gsize} -n ${output_name} $macs_callpeak_args
-    	"""
+		"""
 }

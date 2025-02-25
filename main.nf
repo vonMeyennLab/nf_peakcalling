@@ -52,14 +52,14 @@ include { makeFilesChannel; getFileBaseNames } from './modules/files.mod.nf'
 if (params.input.endsWith('.csv')) {
 
     Channel.fromPath(params.input)
-           .splitCsv(header: true, sep: ',')
-           .map { row -> [ file(row.treatment, checkIfExists: true), file(row.control, checkIfExists: true) ] }
-           .set { files_ch }
+        .splitCsv(header: true, sep: ',')
+        .map { row -> [ file(row.treatment, checkIfExists: true), file(row.control, checkIfExists: true) ] }
+        .set { files_ch }
 
 } else {
 
     Channel.fromPath(params.input)
-           .set { files_ch }
+        .set { files_ch }
 
 }
 
